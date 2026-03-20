@@ -231,6 +231,15 @@ h1 {
     color: var(--muted);
 }
 
+.role-detail {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.75;
+    max-width: 560px;
+    margin-top: 6px;
+    opacity: 0.8;
+}
+
 /* Projects */
 
 .projects {
@@ -257,7 +266,7 @@ h1, .item h3 { transition: color 0.25s ease; }
 .bio, .item p, .section-label, .eyebrow, footer p { transition: color 0.25s ease; }
 .expertise, .work, .projects, footer { transition: border-color 0.25s ease; }
 .role-company { transition: color 0.25s ease; }
-.role-period, .role-title { transition: color 0.25s ease; }
+.role-period, .role-title, .role-detail { transition: color 0.25s ease; }
 
 /* Responsive */
 
