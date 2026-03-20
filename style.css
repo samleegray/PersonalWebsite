@@ -1,0 +1,271 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #0c0c0c;
+    --border: #1e1e1e;
+    --text: #e2e2e2;
+    --heading: #ffffff;
+    --muted: #666666;
+    --accent: #818cf8;
+    --accent-hover: #a5b4fc;
+}
+
+[data-theme="light"] {
+    --bg: #f0ede8;
+    --border: #d8d4cd;
+    --text: #2e2b28;
+    --heading: #1a1714;
+    --muted: #8c8780;
+    --accent: #6366f1;
+    --accent-hover: #4f46e5;
+}
+
+/* Fallback for when JS is disabled */
+@media (prefers-color-scheme: light) {
+    :root:not([data-theme]) {
+        --bg: #f0ede8;
+        --border: #d8d4cd;
+        --text: #2e2b28;
+        --heading: #1a1714;
+        --muted: #8c8780;
+        --accent: #6366f1;
+        --accent-hover: #4f46e5;
+    }
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Nav */
+
+nav {
+    padding: 40px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--muted);
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    transition: color 0.15s ease;
+}
+
+.theme-toggle:hover {
+    color: var(--text);
+}
+
+/* Show sun in dark mode (click to go light), moon in light mode (click to go dark) */
+.icon-sun { display: block; }
+.icon-moon { display: none; }
+
+[data-theme="light"] .icon-sun { display: none; }
+[data-theme="light"] .icon-moon { display: block; }
+
+
+/* Hero */
+
+.hero {
+    padding: 96px 0 80px;
+}
+
+.eyebrow {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: clamp(2.75rem, 9vw, 4.75rem);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--heading);
+    margin-bottom: 28px;
+}
+
+.bio {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 500px;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+/* Buttons */
+
+.cta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    background: var(--accent);
+    color: #ffffff;
+    border: 1px solid transparent;
+}
+
+.btn:hover {
+    background: var(--accent-hover);
+}
+
+.btn.ghost {
+    background: transparent;
+    border-color: var(--border);
+    color: var(--muted);
+}
+
+.btn.ghost:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* Expertise */
+
+.expertise {
+    padding: 64px 0 80px;
+    border-top: 1px solid var(--border);
+}
+
+.section-label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 40px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 36px;
+}
+
+.item h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 10px;
+}
+
+.item p {
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.75;
+}
+
+/* Work History */
+
+.work {
+    padding: 64px 0 80px;
+    border-top: 1px solid var(--border);
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.role {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.role-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.role-company {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.role-period {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.role-title {
+    font-size: 13.5px;
+    color: var(--muted);
+}
+
+/* Projects */
+
+.projects {
+    padding: 64px 0 80px;
+    border-top: 1px solid var(--border);
+}
+
+/* Footer */
+
+footer {
+    padding: 28px 0 40px;
+    border-top: 1px solid var(--border);
+}
+
+footer p {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* Theme transitions */
+
+body { transition: background-color 0.25s ease; }
+h1, .item h3 { transition: color 0.25s ease; }
+.bio, .item p, .section-label, .eyebrow, footer p { transition: color 0.25s ease; }
+.expertise, .work, .projects, footer { transition: border-color 0.25s ease; }
+.role-company { transition: color 0.25s ease; }
+.role-period, .role-title { transition: color 0.25s ease; }
+
+/* Responsive */
+
+@media (max-width: 500px) {
+    .hero {
+        padding: 72px 0 56px;
+    }
+}
